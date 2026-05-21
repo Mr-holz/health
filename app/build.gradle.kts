@@ -5,6 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 android {
     namespace = "com.ruoshui.health"
     compileSdk = 36
@@ -17,6 +21,11 @@ android {
         versionName = "0.1.0"
 
         buildConfigField("String", "DEFAULT_API_BASE_URL", "\"https://example.com/\"")
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     buildFeatures {
