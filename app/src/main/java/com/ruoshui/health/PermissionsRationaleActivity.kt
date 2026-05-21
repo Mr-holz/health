@@ -36,7 +36,7 @@ private fun RationaleScreen() {
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = "若水三千需要读取 Health Connect 中的步数、心率、睡眠和血氧数据，用于本地展示与按小时低功耗同步。",
+            text = "若水三千需要读取 Health Connect 中的步数、心率、睡眠、血氧、体重、体脂、血压、运动、HRV、呼吸率、血糖、体温、饮水等健康数据，用于本地展示与按小时同步。",
             style = MaterialTheme.typography.titleMedium
         )
     }
