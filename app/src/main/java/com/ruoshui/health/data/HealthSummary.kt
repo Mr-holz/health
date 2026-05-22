@@ -19,8 +19,8 @@ data class HealthSummary(
     val respiratoryRate: Double? = null,
     val bloodGlucoseMmol: Double? = null,
     val bodyTemperatureCelsius: Double? = null,
-    val systolicBP: Long? = null,
-    val diastolicBP: Long? = null,
+    val systolicBP: Double? = null,
+    val diastolicBP: Double? = null,
     val hydrationMl: Long = 0,
     val updatedAt: String = "",
     val source: String = "Health Connect"

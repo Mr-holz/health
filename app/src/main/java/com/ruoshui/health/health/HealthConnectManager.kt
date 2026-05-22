@@ -115,17 +115,17 @@ class HealthConnectManager(private val context: Context) {
         // 距离（米）
         val distanceMeters = client.readRecords(
             ReadRecordsRequest(DistanceRecord::class, timeRangeFilter = range)
-        ).records.sumOf { it.distance.inMeters }
+        ).records.sumOf { it.distance.inMeters.toLong() }
 
         // 总消耗热量（千卡）
         val caloriesKcal = client.readRecords(
             ReadRecordsRequest(TotalCaloriesBurnedRecord::class, timeRangeFilter = range)
-        ).records.sumOf { it.energy.inKilocalories }
+        ).records.sumOf { it.energy.inKilocalories.toLong() }
 
         // 活动消耗热量
         val activeCaloriesKcal = client.readRecords(
             ReadRecordsRequest(ActiveCaloriesBurnedRecord::class, timeRangeFilter = range)
-        ).records.sumOf { it.energy.inKilocalories }
+        ).records.sumOf { it.energy.inKilocalories.toLong() }
 
         // 体重（kg）
         val weightKg = client.readRecords(
@@ -174,7 +174,7 @@ class HealthConnectManager(private val context: Context) {
         // 饮水量
         val hydration = client.readRecords(
             ReadRecordsRequest(HydrationRecord::class, timeRangeFilter = range)
-        ).records.sumOf { it.volume.inMilliliters }
+        ).records.sumOf { it.volume.inMilliliters.toLong() }
 
         return HealthSummary(
             steps = steps,

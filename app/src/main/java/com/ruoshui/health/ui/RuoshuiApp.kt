@@ -282,7 +282,7 @@ private fun ExtraItem(label: String, value: String, modifier: Modifier = Modifie
 }
 
 @Composable
-private fun BloodPressureCard(systolic: Long?, diastolic: Long?) {
+private fun BloodPressureCard(systolic: Double?, diastolic: Double?) {
     if (systolic == null && diastolic == null) return
     Card(
         shape = RoundedCornerShape(12.dp),
@@ -295,12 +295,12 @@ private fun BloodPressureCard(systolic: Long?, diastolic: Long?) {
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("收缩压", fontSize = 11.sp, color = TextMuted)
-                Text("${systolic ?: "--"}", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Rose)
+                Text(systolic?.let { "%.0f".format(it) } ?: "--", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Rose)
             }
             Text("  /  ", fontSize = 22.sp, color = TextMuted)
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("舒张压", fontSize = 11.sp, color = TextMuted)
-                Text("${diastolic ?: "--"}", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Sky)
+                Text(diastolic?.let { "%.0f".format(it) } ?: "--", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Sky)
             }
             Spacer(Modifier.width(12.dp))
             Text("mmHg", fontSize = 12.sp, color = TextMuted)
